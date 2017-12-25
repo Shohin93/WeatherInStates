@@ -9,13 +9,16 @@ export default class SearchBar extends Component {
     }
 
     onInputChange(event) {
-        console.log(event.target.value);
         this.setState({term: event.target.value});
+    }
+
+    onFormSubmit(event) {
+        event.preventDefault();
     }
 
     render() {
         return (
-            <form className="input-group">
+            <form onSubmit={this.onFormSubmit} className="input-group">
                 <input 
                     placeholder="Get a five-day forecase in cities"
                     className="form-control"
